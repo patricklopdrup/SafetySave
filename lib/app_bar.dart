@@ -10,7 +10,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Center(
         child: Text(title),
       ),
-      backgroundColor: Color.fromRGBO(50, 90, 50, 1),
+      backgroundColor: Color.fromRGBO(80, 144, 80, 1.0),
     );
   }
 
