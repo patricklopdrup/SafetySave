@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safety_save/app_bar.dart';
+import 'package:safety_save/login/login_password.dart';
+import 'package:safety_save/my_colors.dart';
 
 import '../api/local_auth.dart';
 import '../main.dart';
@@ -10,17 +12,16 @@ class MyLoginBiometrics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar('Hej'),
-      body: Column(
-        children: const [
-          Padding(
-            padding: EdgeInsets.only(top: 90.0),
-            child: Center(
-              child: MyLogo(),
-            ),
-          ),
-          AuthButton(),
-        ],
+      body: Center(
+        child: Column(
+          children:  [
+            const SizedBox(height: 150,),
+            const MyLogo(),
+            Expanded(child: Container(),),
+            const AuthButton(),
+            const SizedBox(height: 100,),
+          ],
+        ),
       )
     );
   }
@@ -49,8 +50,6 @@ class MyLogo extends StatelessWidget {
       ),
     );
   }
-
-
 }
 
 class AuthButton extends StatelessWidget {
@@ -60,19 +59,18 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: Colors.red,
+        backgroundColor: MyColors.green,
       ),
       child: const Text(
-        'Auth',
-        style: TextStyle(fontSize: 25),
+        'Login with fingerprint',
+        style: TextStyle(fontSize: 24),
       ),
       onPressed: () async {
         final isAuthenticated = await LocalAuthApi.authenticate();
-        print("hej $isAuthenticated");
 
         if (isAuthenticated) {
           Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const MyHomePage())
+              MaterialPageRoute(builder: (context) => const MyLoginPassword())
           );
         }
       },
