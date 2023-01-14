@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:safety_save/app_bar.dart';
 
 import '../api/local_auth.dart';
 import '../main.dart';
 
-class MyLoginPage extends StatelessWidget {
-  const MyLoginPage({super.key});
+class MyLoginBiometrics extends StatelessWidget {
+  const MyLoginBiometrics({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(80, 144, 80, 1.0),
+      appBar: MyAppBar('Hej'),
       body: Column(
         children: const [
           Padding(
@@ -21,7 +22,6 @@ class MyLoginPage extends StatelessWidget {
           AuthButton(),
         ],
       )
-
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safety_save/my_colors.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar(this.title, {super.key});
@@ -10,7 +11,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Center(
         child: Text(title),
       ),
-      backgroundColor: Color.fromRGBO(80, 144, 80, 1.0),
+      backgroundColor: MyColors.green,
     );
   }
 
