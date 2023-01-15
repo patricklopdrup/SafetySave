@@ -28,6 +28,13 @@ class _MyLoginPasswordState extends State<MyLoginPassword> {
               letterSpacing: 10,
             ),
           ),
+          const FractionallySizedBox(
+            widthFactor: .75,
+            child: Divider(
+              thickness: 3,
+              color: MyColors.green,
+            ),
+          ),
           NumericKeyboard(
             onKeyboardTap: _onKeyboardTap,
             textColor: MyColors.green,

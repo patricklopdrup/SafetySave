@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safety_save/app_bar.dart';
 import 'package:safety_save/my_colors.dart';
+import 'package:safety_save/vault/pick_image.dart';
 import 'login/login_biometrics.dart';
 
 void main() {
@@ -27,7 +28,8 @@ void main() {
         displaySmall: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
       )
     ),
-    home: const MyLoginBiometrics(),
+    // home: const MyLoginBiometrics(), //TODO: change this back
+    home: const MyImagePicker(),
   ));
 }
 
@@ -38,7 +40,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: MyAppBar('Home Screen'),
+      appBar: MyDefaultAppBar('Home Screen'),
     );
   }
 }

@@ -61,9 +61,21 @@ class AuthButton extends StatelessWidget {
       style: TextButton.styleFrom(
         backgroundColor: MyColors.green,
       ),
-      child: const Text(
-        'Login with fingerprint',
-        style: TextStyle(fontSize: 24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Text(
+            'Login',
+            style: TextStyle(
+                fontSize: 24,
+            ),
+          ),
+          SizedBox(width: 5,),
+          Icon(
+            Icons.fingerprint,
+          )
+        ],
       ),
       onPressed: () async {
         final isAuthenticated = await LocalAuthApi.authenticate();
