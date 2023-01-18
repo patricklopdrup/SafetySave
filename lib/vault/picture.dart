@@ -1,8 +1,7 @@
-
-
+import 'dart:io';
 
 class Picture {
-  final String path;
+  final File image;
 
-  Picture(this.path);
+  Picture(this.image);
 }

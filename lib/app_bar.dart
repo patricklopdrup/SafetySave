@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:safety_save/my_colors.dart';
 
 class MyDefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -17,10 +20,20 @@ class MyDefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(50);
 }
 
-
-class MyBurgerAppBar extends StatelessWidget implements PreferredSizeWidget{
+class MyAppBarWithPlus extends StatefulWidget implements PreferredSizeWidget {
   final String title;
-  const MyBurgerAppBar(this.title, {super.key});
+  const MyAppBarWithPlus(this.title, {Key? key}) : super(key: key);
+
+  @override
+  State<MyAppBarWithPlus> createState() => _MyAppBarWithPlusState(title);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(50);
+}
+
+class _MyAppBarWithPlusState extends State<MyAppBarWithPlus> {
+  final String title;
+  _MyAppBarWithPlusState(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +45,25 @@ class MyBurgerAppBar extends StatelessWidget implements PreferredSizeWidget{
           icon: const Icon(Icons.add),
         ),
         IconButton(
-            onPressed: () => _onSettingPressed(),
-            icon: const Icon(Icons.settings),
+          onPressed: () => _onSettingPressed(),
+          icon: const Icon(Icons.settings),
         ),
       ],
     );
   }
 
-  @override
-  Size get preferredSize => const Size.fromHeight(50);
+  File? _image;
+  Future _pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image == null) return;
+    File? img = File(image.path);
+    setState(() {
+      _image = img;
+    });
+  }
 
   _onAddPressed() {
-    print('add pressed');
+
   }
 
   _onSettingPressed() {
